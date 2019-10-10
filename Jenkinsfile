@@ -76,7 +76,7 @@ podTemplate(label: label,
                             sh """
                                 export KUBECONFIG=/home/jenkins/.kube/kubeconfig                                                      
                                 set +e
-                                helm upgrade petclinic-${env_x} . -f values-${env_x}.yaml --set image.tag=${GIT_COMMIT} service.type=NodePort --install --wait --force
+                                helm upgrade petclinic-${env_x} . -f values-${env_x}.yaml --set image.tag=${GIT_COMMIT} --set service.type=NodePort --install --wait --force
                                 export DEPLOY_RESULT=\$?
                                 [ \$DEPLOY_RESULT -eq 1 ] && helm rollback petclinic-${env_x} 0 && exit 1
                                 set -e

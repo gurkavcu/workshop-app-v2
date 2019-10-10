@@ -12,7 +12,7 @@ spec:
   selector:
     app: {{ .Values.env }}-{{ .Values.petclinic.name }}
     env: {{ .Values.env }}
-  type: LoadBalancer
+  type: {{ .Values.service.type }}
   ports:
     - protocol: TCP
       port: 80

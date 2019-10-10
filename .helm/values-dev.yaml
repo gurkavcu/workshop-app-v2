@@ -25,3 +25,6 @@ hpa:
 
 spring:
   profile: development
+
+service:
+  type: NodePort  

@@ -25,3 +25,6 @@ hpa:
 
 spring:
   profile: test
+
+service:
+  type: NodePort

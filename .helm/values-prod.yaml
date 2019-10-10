@@ -24,7 +24,16 @@ hpa:
   targetCPUUtilizationPercentage: 50
 
 spring:
-  profile: production
+  profile: mysql
 
 service:
-  type: NodePort  
+  type: NodePort
+
+db:
+  image: mysql:8
+  database: petclinic
+  user: petclinic
+  password: petclinic
+  root: supersecret
+  port: 3306
+  replicas: 1  

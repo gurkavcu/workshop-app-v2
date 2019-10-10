@@ -33,7 +33,9 @@ spec:
         image: {{ .Values.image.name }}:{{ .Values.image.tag }}
         env:
         - name: SPRING_PROFILE
-          value: {{ .Values.spring.profile | quote }}            
+          value: {{ .Values.spring.profile | quote }}
+        - name: APP_NAMESPACE
+          value: {{ .Values.env | quote }}                            
         args: ["java", "-jar", "app.jar","-Dspring.profiles.active=$(SPRING_PROFILE)"]
         ports:
         - containerPort: {{ .Values.petclinic.port }}
